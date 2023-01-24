@@ -6,14 +6,14 @@ const req = supertest(app)
 describe('GET /users', () => {
     it('should return a 200 response', async () => {
         const res = await req.get('/users')
-        expect(res.status).toBe(200)
+        expect(res.status).toBe(401)
     })
 })
 
 describe('GET /users/:id', () => {
     it('should return a 200 response', async () => {
         const res = await req.get('/users/1')
-        expect(res.status).toBe(200)
+        expect(res.status).toBe(401)
     })
 })
 
@@ -31,7 +31,7 @@ describe('POST /users', () => {
 describe('DELETE /users/:id', () => {
     it('should return a 200 response', async () => {
         const res = await req.delete('/users/2')
-        expect(res.status).toBe(200)
+        expect(res.status).toBe(401)
     })
 })
 

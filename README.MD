@@ -6,6 +6,21 @@
 - Run `npm start` to start the application
 - Run `npm test` to run the tests
 
+## Database Setup
+### 1. CREATE DATABASE
+- `CREATE DATABASE storefront;`
+- `CREATE DATABASE storefront_test;`
+
+### 2. CREATE USER
+- `CREATE USER full_stack_user WITH PASSWORD 'pass123';`
+
+### 3. GRANT PRIVILEGES
+- `GRANT ALL PRIVILEGES ON DATABASE storefront TO storefront;`
+- `GRANT ALL PRIVILEGES ON DATABASE storefront_test TO storefront;`
+
+### 4. CREATE TABLES
+- RUN `db-migrate up` to create tables
+
 ## Required Technologies
 - Postgres for the database
 - Node/Express for the application logic
@@ -13,16 +28,19 @@
 - db-migrate from npm for migrations
 - jsonwebtoken from npm for working with JWTs
 - jasmine from npm for testing
+- supertest from npm for testing HTTP requests
+- bcrypt from npm for hashing passwords
+- pg from npm for working with Postgres
 
 ## environment variables
 Your application must make use of the following environment variables:
 - `PORT` - the port your application will run on
 - `POSTGRES_HOST`
-- `POSTGRES_DB`
-- `POSTGRES_TEST_DB`
+- `POSTGRES_DB=storefront`
+- `POSTGRES_TEST_DB=storefront_test`
 - `POSTGRES_PORT`
-- `POSTGRES_USER`
-- `POSTGRES_PASSWORD`
+- `POSTGRES_USER=full_stack_user`
+- `POSTGRES_PASSWORD=pass123`
 - `BCRYPT_PASSWORD` - the password used to hash passwords
 - `SALT_ROUNDS` - the number of salt rounds used to hash passwords
 - `TOKEN_SECRET` - the secret used to sign JWTs

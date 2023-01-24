@@ -1,8 +1,14 @@
 import { UserStore } from "../../models/user";
+import dotenv from "dotenv";
+dotenv.config();
 
 const userStore = new UserStore();
 
 describe("User Model", () => {
+    it("ENV should equal test or dev", () => {
+        console.log("ENV=",process.env.ENV);
+        expect(process.env.ENV).toMatch(/test|dev/);
+    });
     it("should have an index method", () => {
         expect(userStore.index).toBeDefined();
     });

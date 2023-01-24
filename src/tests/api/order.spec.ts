@@ -5,15 +5,16 @@ const req = supertest(app)
 
 describe('GET /orders', () => {
     it('should return a 200 response', async () => {
+        // set the authorization header
         const res = await req.get('/orders')
-        expect(res.status).toBe(200)
+        expect(res.status).toBe(401)
     })
 })
 
 describe('GET /orders/:id', () => {
     it('should return a 200 response', async () => {
         const res = await req.get('/orders/1')
-        expect(res.status).toBe(200)
+        expect(res.status).toBe(401)
     })
 })
 

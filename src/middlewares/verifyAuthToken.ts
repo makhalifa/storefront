@@ -6,7 +6,6 @@ dotenv.config()
 
 export const verifyAuthToken = (req: Request, res: Response, next: NextFunction) => {
     try {
-        console.log(req.headers.authorization)
         const authHeader = req.headers.authorization
         const token = (authHeader as string).split(' ')[1]
         if (!token) {
@@ -15,7 +14,6 @@ export const verifyAuthToken = (req: Request, res: Response, next: NextFunction)
             return
         }
         const decoded = jwt.verify(token, process.env.TOKEN_SECRET as string)
-        console.log(decoded)
         if (!decoded) {
             res.status(401)
             res.json('Authentication failed')
