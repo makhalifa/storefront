@@ -10,10 +10,11 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write 'src/**/*.ts'",
-    "test:devdb": "set ENV=dev&& npx tsc && jasmine",
-    "test:testdb": "set ENV=test&& npx tsc && jasmine",
+    "test" : "set ENV=test&& npm run testdb-up && npx tsc && jasmine && npm run testdb-dwon",
     "devdb-up": "db-migrate up --config ./database.json --env dev",
-    "devdb-down": "db-migrate down --config ./database.json --env dev"
+    "devdb-down": "db-migrate down --config ./database.json --env dev",
+    "testdb-up": "db-migrate up --config ./database.json --env test",
+    "testdb-down": "db-migrate down --config ./database.json --env test"
   },
   "keywords": [],
   "author": "",
